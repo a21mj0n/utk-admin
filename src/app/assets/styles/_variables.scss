@@ -1,0 +1,206 @@
+$colors: (
+		'text-primary': #000000,
+		'text-secondary': #696969,
+		'text-tertiary': #999999,
+		'text-white': #ffffff,
+		'black-title': #1e1e1e,
+		'bg-primary': #ffffff,
+		'bg-card-elevated': #f3f4f6,
+		'bg-light-purple': #f5f6ff,
+		'brand-primary-300': #bba2fd,
+		'brand-primary-500': #7000ff,
+		'brand-primary-600': #5b34c1,
+		'brand-secondary-300': #f8bcaf,
+		'brand-secondary-500': #ff5733,
+		'brand-secondary-600': #cc5a41,
+		'brand-yellow-300': #fdf5a6,
+		'brand-yellow-500': #ffff54,
+		'brand-yellow-600': #f9de6d,
+		'brand-green-300': #dcf0af,
+		'brand-green-500': #c4ed70,
+		'brand-green-600': #9ded70,
+		'brand-lightblue-300': #c5ecfd,
+		'brand-lightblue-500': #90ddfb,
+		'brand-lightblue-600': #54b8f9,
+		'brand-grey-500': #f3f4f6,
+		'brand-pink-300': #f19eda,
+		'brand-pink-500': #ec616a,
+		'brand-pink-600': #ea3e68,
+		'static-black': #000000,
+		'static-white': #ffffff,
+		'transparency-black': #00000099,
+		'transparency-white': #ffffff99,
+		'grey-50': #f3f4f6,
+		'grey-100': #e5e5e5,
+		'grey-200': #cccccc,
+		'grey-300': #b3b3b3,
+		'grey-400': #999999,
+		'grey-500': #808080,
+		'grey-800': #4e4d4d,
+		'grey-900': #1d1d1d,
+		'danger-500': #f93d3d,
+		'success-500': #09b849,
+		'warning-500': #ffa41d
+);
+
+$alert-colors: (
+		'warning': #ffa41d,
+		'info': '',
+		'success': #09b849,
+		'error': #f93d3d
+);
+
+$grid-breakpoints: (
+		xs: 0,
+		sm: 640px,
+		md: 1024px,
+		lg: 1280px,
+		xl: 1536px,
+		xxl: 1920px
+);
+
+// $grid-breakpoints: (
+//     xxs: 0,
+//     xs: 330px,
+//     sm: 540px,
+//     md: 720px,
+//     lg: 1092px,
+//     xl: 1280px,
+//     xxl: 1440px,
+//     xlg: 1660px
+// );
+
+$breakpoints: (
+		xs: 0px,
+		sm: 576px,
+		md: 768px,
+		lg: 992px,
+		xl: 1200px,
+		xxl: 1400px
+);
+
+$typography: (
+		'h40': (
+				4rem,
+				700,
+				4.8rem
+		),
+		'h32': (
+				3.2rem,
+				700,
+				4rem
+		),
+		'h26': (
+				2.6rem,
+				700,
+				4rem
+		),
+		'h24': (
+				2.4rem,
+				700,
+				2.8rem
+		),
+		'h20': (
+				2rem,
+				700,
+				2.4rem
+		),
+		'h16': (
+				1.6rem,
+				700,
+				2rem
+		),
+		'h14': (
+				1.4rem,
+				700,
+				2rem
+		),
+		'h12': (
+				1.2rem,
+				700,
+				1.6rem
+		),
+		'h10': (
+				1rem,
+				700,
+				1.3rem
+		),
+		's24': (
+				2.4rem,
+				600,
+				3.36rem
+		),
+		's20': (
+				2rem,
+				600,
+				2.8rem
+		),
+		's16': (
+				1.6rem,
+				600,
+				2.24rem
+		),
+		's14': (
+				1.4rem,
+				600,
+				1.96rem
+		),
+		's12': (
+				1.2rem,
+				600,
+				1.68rem
+		),
+		's10': (
+				1rem,
+				600,
+				1.4rem
+		),
+		't20': (
+				2rem,
+				500,
+				3.2rem
+		),
+		't16': (
+				1.6rem,
+				500,
+				2.56rem
+		),
+		't14': (
+				1.4rem,
+				500,
+				2.24rem
+		),
+		't12': (
+				1.2rem,
+				500,
+				1.92rem
+		),
+		't10': (
+				1rem,
+				500,
+				1.6rem
+		)
+);
+
+$column-map: (
+		sm: 2,
+		md: 3,
+		lg: 4,
+		xl: 4,
+		2xl: 4
+);
+
+@function HexToRGB($hex) {
+	@return red($hex), green($hex), blue($hex);
+}
+
+
+:root {
+	--rem: 10px;
+	font-size: 10px;
+
+	@each $key, $value in $colors {
+		--#{$key}: #{$value};
+		--#{$key}-rgb: #{HexToRGB($value)};
+	}
+}

@@ -1,0 +1,61 @@
+@use "sass:list";
+
+@mixin flex($fgap: 0 0, $direction: row, $justify: start, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $fgap;
+  @content;
+}
+
+@mixin useMediaQuery($grid-breakpoints, $breakpoint, $useMinWidth: false) {
+  @if $useMinWidth {
+    @media (min-width: map-get($grid-breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @media (max-width: map-get($grid-breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+}
+
+@mixin animation($name, $duration, $timing-function, $delay) {
+  animation-name: $name;
+  animation-duration: $duration;
+  animation-timing-function: $timing-function;
+  animation-delay: $delay;
+  animation-fill-mode: both;
+}
+
+@mixin skeleton($bgColor: #f2f4f7, $borderRadius: 5px) {
+  background: rgba($bgColor, 0.2);
+  background: linear-gradient(110deg,
+      rgba($bgColor, 0.8) 8%,
+      rgba($bgColor, 0.2) 18%,
+      rgba($bgColor, 0.8) 33%);
+  border-radius: $borderRadius;
+  background-size: 200% 100%;
+  animation: 1.5s shine linear infinite;
+
+  @keyframes shine {
+    to {
+      background-position-x: -200%;
+    }
+  }
+}
+
+@mixin font($font-type: "t20") {
+  font-style: normal;
+  font-size: list.nth(map-get($typography, $font-type), 1);
+  font-weight: list.nth(map-get($typography, $font-type), 2);
+  // line-height: list.nth(map-get($typography, $font-type), 3) ;
+  line-height: normal;
+  @content;
+}
+
+@function clr($colorName, $opacity: 1) {
+  $color: unquote($colorName);
+  @return rgba(var(--#{$color}-rgb), $opacity);
+}

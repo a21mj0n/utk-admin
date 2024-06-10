@@ -1,0 +1,30 @@
+{
+  "root": true,
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser"
+  },
+  "extends": [
+    "plugin:vue/strongly-recommended",
+    "eslint:recommended",
+    "@vue/typescript/recommended",
+    "prettier"
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "prettier"
+  ],
+  "rules": {
+    "curly":"error",
+    "prefer-arrow-callback": "error",
+    "arrow-body-style": ["error", "as-needed"],
+//    "func-style": ["error", "expression"],
+    "no-magic-numbers": "warn",
+    "no-nested-ternary": "error",
+    "prettier/prettier": "error",
+    "@typescript-eslint/no-explicit-any": "off",
+    "vue/no-v-model-argument": "off",
+    "vue/no-multiple-template-root": "off",
+    "vue/multi-word-component-names": "off"
+  }
+}
